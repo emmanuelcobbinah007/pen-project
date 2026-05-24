@@ -47,7 +47,7 @@ export default function Hero() {
         style={{ animationDelay: "0.3s" }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center py-24 sm:py-0">
         {/* Logo */}
         <div className="hidden md:flex mb-8 justify-center animate-fade-in-down">
           <div className="w-[160px] h-[70px] relative overflow-hidden">
@@ -98,7 +98,7 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <div
-          className="mt-20 animate-bounce opacity-0 stagger-5 animate-fade-in-up"
+          className="mt-10 sm:mt-20 animate-bounce opacity-0 stagger-5 animate-fade-in-up"
           style={{ animationDelay: "1.5s" }}
         >
           <ArrowDown size="24" className="mx-auto text-white/40" />

@@ -262,6 +262,34 @@ body {
   animation: circleExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Hero wave line draw-in animation */
+@keyframes waveDraw {
+  from {
+    stroke-dashoffset: 3000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-wave {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  animation: waveDraw 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.hero-wave-1 {
+  animation-delay: 0.8s;
+}
+
+.hero-wave-2 {
+  animation-delay: 1.2s;
+}
+
+.hero-wave-3 {
+  animation-delay: 1.6s;
+}
+
 /* Text reveal clip */
 @keyframes textReveal {
   from {

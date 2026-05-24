@@ -63,11 +63,42 @@ export default function Services() {
         {/* Bento Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-auto"
+          className="grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-5 auto-rows-auto"
         >
-          {/* ── Featured Card: Mental Health Advocacy ── */}
+          {/* ── Education & Workshops (Left Top) ── */}
           <div
-            className={`group md:col-span-7 md:row-span-2 relative bg-pen-navy rounded-3xl p-10 md:p-12 overflow-hidden cursor-default transition-all duration-700 ${vis(0).className}`}
+            className={`order-2 md:order-1 group col-span-1 md:col-span-3 bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.1).className}`}
+            style={vis(0.1).style}
+          >
+            <div className="flex items-start justify-between mb-3 md:mb-5">
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <Teacher size="28" variant="Bulk" className="hidden md:block" />
+                <Teacher size="20" variant="Bulk" className="md:hidden" />
+              </div>
+              <span className="text-pen-grey-light text-[10px] md:text-xs font-semibold tracking-widest uppercase mt-1 md:mt-2">
+                02
+              </span>
+            </div>
+            <h3
+              className="text-pen-navy font-bold text-sm md:text-xl mb-1 md:mb-3"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Education & Workshops
+            </h3>
+            <p className="text-pen-grey text-xs md:text-sm leading-relaxed hidden md:block">
+              We deliver evidence-based workshops, seminars, and training
+              programs that equip individuals and organizations with essential
+              psychological knowledge.
+            </p>
+            <p className="text-pen-grey text-xs leading-relaxed md:hidden">
+              Evidence-based workshops and training programs for essential
+              psychological knowledge.
+            </p>
+          </div>
+
+          {/* ── Featured Card: Mental Health Advocacy (Center) ── */}
+          <div
+            className={`order-1 md:order-2 group col-span-2 md:col-span-6 md:row-span-2 relative bg-pen-navy rounded-2xl md:rounded-3xl p-6 md:p-12 overflow-hidden cursor-default transition-all duration-700 ${vis(0).className}`}
             style={vis(0).style}
           >
             {/* Decorative elements */}
@@ -105,134 +136,143 @@ export default function Services() {
             </div>
           </div>
 
-          {/* ── Education & Workshops ── */}
+          {/* ── Community Support (Right Top) ── */}
           <div
-            className={`group md:col-span-5 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.1).className}`}
-            style={vis(0.1).style}
-          >
-            <div className="flex items-start justify-between mb-5">
-              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
-                <Teacher size="28" variant="Bulk" />
-              </div>
-              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
-                02
-              </span>
-            </div>
-            <h3
-              className="text-pen-navy font-bold text-xl mb-3"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Education & Workshops
-            </h3>
-            <p className="text-pen-grey text-sm leading-relaxed">
-              We deliver evidence-based workshops, seminars, and training
-              programs that equip individuals and organizations with essential
-              psychological knowledge and coping skills.
-            </p>
-          </div>
-
-          {/* ── Community Support ── */}
-          <div
-            className={`group md:col-span-5 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.2).className}`}
+            className={`order-3 md:order-3 group col-span-1 md:col-span-3 bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.2).className}`}
             style={vis(0.2).style}
           >
-            <div className="flex items-start justify-between mb-5">
-              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
-                <People size="28" variant="Bulk" />
+            <div className="flex items-start justify-between mb-3 md:mb-5">
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <People size="28" variant="Bulk" className="hidden md:block" />
+                <People size="20" variant="Bulk" className="md:hidden" />
               </div>
-              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+              <span className="text-pen-grey-light text-[10px] md:text-xs font-semibold tracking-widest uppercase mt-1 md:mt-2">
                 03
               </span>
             </div>
             <h3
-              className="text-pen-navy font-bold text-xl mb-3"
+              className="text-pen-navy font-bold text-sm md:text-xl mb-1 md:mb-3"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Community Support
             </h3>
-            <p className="text-pen-grey text-sm leading-relaxed">
-              We build safe, inclusive spaces — both online and offline — where
-              individuals can share experiences, find support, and build
-              meaningful connections on their mental health journey.
+            <p className="text-pen-grey text-xs md:text-sm leading-relaxed hidden md:block">
+              We build safe, inclusive spaces where individuals can share
+              experiences and build meaningful connections.
+            </p>
+            <p className="text-pen-grey text-xs leading-relaxed md:hidden">
+              Safe, inclusive spaces to share experiences and build meaningful
+              connections.
             </p>
           </div>
 
-          {/* ── Research & Resources ── */}
+          {/* ── Research & Resources (Left Bottom) ── */}
           <div
-            className={`group md:col-span-4 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.3).className}`}
+            className={`order-4 md:order-4 group col-span-1 md:col-span-3 bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.3).className}`}
             style={vis(0.3).style}
           >
-            <div className="flex items-start justify-between mb-5">
-              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
-                <DocumentText size="28" variant="Bulk" />
+            <div className="flex items-start justify-between mb-3 md:mb-5">
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <DocumentText
+                  size="28"
+                  variant="Bulk"
+                  className="hidden md:block"
+                />
+                <DocumentText size="20" variant="Bulk" className="md:hidden" />
               </div>
-              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+              <span className="text-pen-grey-light text-[10px] md:text-xs font-semibold tracking-widest uppercase mt-1 md:mt-2">
                 04
               </span>
             </div>
             <h3
-              className="text-pen-navy font-bold text-xl mb-3"
+              className="text-pen-navy font-bold text-sm md:text-xl mb-1 md:mb-3"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Research & Resources
             </h3>
-            <p className="text-pen-grey text-sm leading-relaxed">
-              We curate and develop research-backed resources, articles, and
-              toolkits that empower people to better understand psychology and
-              take control of their mental wellness.
+            <p className="text-pen-grey text-xs md:text-sm leading-relaxed hidden md:block">
+              We curate research-backed resources and toolkits that empower
+              people to understand psychology.
+            </p>
+            <p className="text-pen-grey text-xs leading-relaxed md:hidden">
+              Research-backed resources and toolkits to understand psychology
+              better.
             </p>
           </div>
 
-          {/* ── Counselor Network ── */}
+          {/* ── Counselor Network (Right Bottom) ── */}
           <div
-            className={`group md:col-span-4 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.4).className}`}
+            className={`order-5 md:order-5 group col-span-1 md:col-span-3 bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.4).className}`}
             style={vis(0.4).style}
           >
-            <div className="flex items-start justify-between mb-5">
-              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
-                <UserTick size="28" variant="Bulk" />
+            <div className="flex items-start justify-between mb-3 md:mb-5">
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <UserTick
+                  size="28"
+                  variant="Bulk"
+                  className="hidden md:block"
+                />
+                <UserTick size="20" variant="Bulk" className="md:hidden" />
               </div>
-              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+              <span className="text-pen-grey-light text-[10px] md:text-xs font-semibold tracking-widest uppercase mt-1 md:mt-2">
                 05
               </span>
             </div>
             <h3
-              className="text-pen-navy font-bold text-xl mb-3"
+              className="text-pen-navy font-bold text-sm md:text-xl mb-1 md:mb-3"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Counselor Network
             </h3>
-            <p className="text-pen-grey text-sm leading-relaxed">
-              We connect individuals with verified mental health
-              professionals, making it easier to find the right support
-              tailored to personal needs and preferences.
+            <p className="text-pen-grey text-xs md:text-sm leading-relaxed hidden md:block">
+              We connect individuals with verified mental health professionals
+              suited to their needs.
+            </p>
+            <p className="text-pen-grey text-xs leading-relaxed md:hidden">
+              Connecting you with verified mental health professionals for the
+              right support.
             </p>
           </div>
 
-          {/* ── Corporate Wellness ── */}
+          {/* ── Corporate Wellness (Bottom Full) ── */}
           <div
-            className={`group md:col-span-4 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.5).className}`}
+            className={`order-6 md:order-6 group col-span-2 md:col-span-12 bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.5).className}`}
             style={vis(0.5).style}
           >
-            <div className="flex items-start justify-between mb-5">
-              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
-                <Building4 size="28" variant="Bulk" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex-1">
+                <div className="flex items-start justify-between mb-3 md:mb-5">
+                  <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                    <Building4
+                      size="28"
+                      variant="Bulk"
+                      className="hidden md:block"
+                    />
+                    <Building4 size="20" variant="Bulk" className="md:hidden" />
+                  </div>
+                  <span className="text-pen-grey-light text-[10px] md:text-xs font-semibold tracking-widest uppercase mt-1 md:mt-2">
+                    06
+                  </span>
+                </div>
+                <h3
+                  className="text-pen-navy font-bold text-sm md:text-xl mb-1 md:mb-3"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Corporate Wellness
+                </h3>
               </div>
-              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
-                06
-              </span>
+              <div className="flex-1">
+                <p className="text-pen-grey text-xs md:text-sm leading-relaxed hidden md:block md:max-w-xl md:ml-auto md:text-right">
+                  Our corporate programs help organizations foster mental
+                  well-being, improving productivity and creating healthier,
+                  more supportive work environments.
+                </p>
+                <p className="text-pen-grey text-xs leading-relaxed md:hidden">
+                  Programs to foster mental well-being and clearer, supportive
+                  work environments.
+                </p>
+              </div>
             </div>
-            <h3
-              className="text-pen-navy font-bold text-xl mb-3"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Corporate Wellness
-            </h3>
-            <p className="text-pen-grey text-sm leading-relaxed">
-              We partner with organizations to design and implement workplace
-              wellness programs that boost employee well-being, productivity,
-              and resilience.
-            </p>
           </div>
         </div>
       </div>

@@ -166,9 +166,7 @@ export default function HowItWorks() {
                     : `opacity-0 ${i % 2 === 0 ? "-translate-x-8" : "translate-x-8"}`
                 }`}
                 style={{
-                  transitionDelay: stepsVisible
-                    ? `${i * 0.2 + 0.15}s`
-                    : "0s",
+                  transitionDelay: stepsVisible ? `${i * 0.2 + 0.15}s` : "0s",
                 }}
               >
                 <div
