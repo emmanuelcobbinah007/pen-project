@@ -15,11 +15,32 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = ["home", "about", "services", "impact", "contact"];
+    const observers = ids.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { threshold: 0.3 }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
   }, []);
 
   // Lock body scroll when mobile menu is open
@@ -85,6 +106,11 @@ export default function Navbar() {
             : "bg-transparent py-5"
         }`}
       >
+        {/* Scroll progress bar */}
+        <div
+          className="absolute bottom-0 left-0 h-[2px] bg-pen-blue transition-none"
+          style={{ width: `${progress}%`, opacity: scrolled ? 1 : 0 }}
+        />
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="#home" className="flex items-center overflow-hidden">
@@ -105,17 +131,29 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:text-pen-blue ${
-                  scrolled ? "text-pen-dark" : "text-white/90"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace("#", "");
+              const isActive = activeSection === sectionId;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`relative text-sm font-medium tracking-wide transition-colors duration-300 hover:text-pen-blue ${
+                    scrolled
+                      ? isActive ? "text-pen-blue" : "text-pen-dark"
+                      : isActive ? "text-white" : "text-white/70"
+                  }`}
+                >
+                  {link.label}
+                  {/* Active underline dot */}
+                  <span
+                    className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-pen-blue transition-all duration-300 ${
+                      isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
             <Link
               href="#contact"
               className={`hover:bg-pen-blue-light px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-pen-blue/25 ${scrolled ? "text-white bg-pen-dark " : "text-pen-dark bg-pen-white"}`}

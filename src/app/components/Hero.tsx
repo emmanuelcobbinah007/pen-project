@@ -47,52 +47,58 @@ export default function Hero() {
         style={{ animationDelay: "0.3s" }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center py-24 sm:py-0">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center py-24 sm:py-0">
         {/* Logo */}
-        <div className="hidden md:flex mb-8 justify-center animate-fade-in-down">
-          <div className="w-[160px] h-[70px] relative overflow-hidden">
+        <div className="hidden md:flex mb-6 justify-center animate-fade-in-down">
+          <div className="w-[130px] h-[56px] relative overflow-hidden">
             <Image
               src="/PEN LOGO - Black&White_20260209_035921_0000(1).png"
               alt="Psyche Empowerment Network Logo"
               width={260}
               height={260}
-              className="object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] h-[220px] brightness-0 invert"
+              className="object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] brightness-0 invert"
               priority
             />
           </div>
         </div>
 
-        {/* Main Heading — large, lowercase, serif */}
+        {/* Main Heading */}
         <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight text-white lowercase tracking-tight animate-blur-in stagger-1"
-          style={{ fontFamily: "var(--font-serif)" }}
+          className="text-[2.8rem] sm:text-6xl md:text-7xl lg:text-[5.25rem] text-white lowercase tracking-tight animate-blur-in stagger-1"
+          style={{ fontFamily: "var(--font-serif)", lineHeight: 1.05 }}
         >
-          empowering minds,
+          build a resilient
           <br />
-          <span className="text-pen-blue-pale animate-text-revealw inline-block">
-            breaking stigma
-          </span>
+          <span className="text-pen-blue-pale">mind with pen</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-8 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed animate-fade-in-up stagger-3">
-          Psyche Empowerment Network (PEN) advocates for accessible, stigma-free
-          mental health support across Africa. Your mind matters.
+        <p className="mt-5 text-sm sm:text-base font-semibold text-white/80 tracking-[0.12em] uppercase animate-fade-in-up stagger-2">
+          Making Global Impacts by Empowering Minds
+        </p>
+
+        {/* Body */}
+        <p className="mt-5 text-sm sm:text-base text-white/55 max-w-xl mx-auto leading-relaxed animate-fade-in-up stagger-3">
+          Do you struggle with stress, phobia, depression, trauma, grief,
+          suicidal thoughts, or anxiety? With the help of our mental health
+          tech-aid tool{" "}
+          <span className="text-pen-blue-pale font-medium">RESILIENTool</span>,
+          our professionals, partners, and community — your solution is here.
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up stagger-4">
-          <Link
-            href="#about"
-            className="group bg-white text-pen-navy px-8 py-4 rounded-full text-base font-semibold tracking-wide hover:bg-pen-blue-pale hover:shadow-xl hover:shadow-white/10 transition-all duration-500 hover:-translate-y-0.5"
-          >
-            Learn More
-          </Link>
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in-up stagger-4">
           <Link
             href="#contact"
-            className="group border border-white/30 text-white px-8 py-4 rounded-full text-base font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 transition-all duration-500 hover:-translate-y-0.5"
+            className="btn-shimmer group bg-white text-pen-navy px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-pen-blue-pale hover:shadow-xl hover:shadow-white/10 transition-all duration-500 hover:-translate-y-0.5"
           >
-            Get Involved
+            Sign Up to Be a Member
+          </Link>
+          <Link
+            href="#about"
+            className="group border border-white/30 text-white px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 transition-all duration-500 hover:-translate-y-0.5"
+          >
+            Learn More
           </Link>
         </div>
 

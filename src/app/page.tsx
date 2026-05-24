@@ -1,13 +1,14 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
 import About from "./components/About";
+import ResilientTool from "./components/ResilientTool";
 import Services from "./components/Services";
 import HowItWorks from "./components/HowItWorks";
-import Marquee from "./components/Marquee";
 import Impact from "./components/Impact";
 import Testimonials from "./components/Testimonials";
 import FAQ from "./components/FAQ";
-import CTA from "./components/CTA";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 
@@ -17,14 +18,15 @@ export default function Home() {
       <Loader />
       <Navbar />
       <Hero />
-      <About />
       <Marquee />
+      <About />
+      <ResilientTool />
       <Services />
       <HowItWorks />
       <Impact />
       <Testimonials />
       <FAQ />
-      <CTA />
+      <Contact />
       <Footer />
     </>
   );

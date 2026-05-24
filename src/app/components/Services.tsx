@@ -98,9 +98,19 @@ export default function Services() {
 
           {/* ── Featured Card: Mental Health Advocacy (Center) ── */}
           <div
+            onMouseMove={(e) => {
+              const rect = e.currentTarget.getBoundingClientRect();
+              e.currentTarget.style.setProperty("--glow-x", `${e.clientX - rect.left}px`);
+              e.currentTarget.style.setProperty("--glow-y", `${e.clientY - rect.top}px`);
+            }}
             className={`order-1 md:order-2 group col-span-2 md:col-span-6 md:row-span-2 relative bg-pen-navy rounded-2xl md:rounded-3xl p-6 md:p-12 overflow-hidden cursor-default transition-all duration-700 ${vis(0).className}`}
             style={vis(0).style}
           >
+            {/* Mouse glow */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{ background: "radial-gradient(350px circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(59,130,246,0.15), transparent 70%)" }}
+            />
             {/* Decorative elements */}
             <div className="absolute top-8 right-8 w-20 h-20 rounded-full border border-white/[0.06]" />
             <div className="absolute top-12 right-12 w-12 h-12 rounded-full border border-white/[0.06]" />

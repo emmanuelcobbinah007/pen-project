@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject, type MouseEvent } from "react";
 
 interface UseScrollRevealOptions {
   threshold?: number;
@@ -57,6 +57,20 @@ export function useParallax(speed: number = 0.5) {
   }, [speed]);
 
   return ref;
+}
+
+export function useCardGlow() {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--glow-x", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--glow-y", `${e.clientY - rect.top}px`);
+  };
+
+  return { ref, onMouseMove };
 }
 
 export function useCountUp(

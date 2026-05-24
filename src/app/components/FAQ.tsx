@@ -79,7 +79,7 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`bg-pen-ash rounded-2xl overflow-hidden border border-transparent hover:border-pen-blue/10 transition-all duration-700 ${itemsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`bg-pen-ash rounded-2xl overflow-hidden border transition-all duration-500 ${openIndex === i ? "border-pen-blue/30" : "border-transparent hover:border-pen-blue/10"} ${itemsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: itemsVisible ? `${i * 0.08}s` : "0s" }}
             >
               <button

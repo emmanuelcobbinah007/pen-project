@@ -70,7 +70,7 @@ export default function Footer() {
   });
 
   return (
-    <footer id="contact" className="bg-pen-black pt-20 pb-8">
+    <footer className="bg-pen-black pt-20 pb-8">
       <div ref={footerRef} className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           {/* Brand */}
