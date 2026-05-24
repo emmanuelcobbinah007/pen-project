@@ -1,0 +1,241 @@
+"use client";
+
+import {
+  Microphone2,
+  Teacher,
+  People,
+  DocumentText,
+  UserTick,
+  Building4,
+  ArrowRight,
+} from "iconsax-reactjs";
+import { useScrollReveal } from "../hooks/useAnimations";
+
+export default function Services() {
+  const [headerRef, headerVisible] = useScrollReveal<HTMLDivElement>({
+    threshold: 0.2,
+  });
+  const [gridRef, gridVisible] = useScrollReveal<HTMLDivElement>({
+    threshold: 0.05,
+  });
+
+  const vis = (delay: number) => ({
+    className: gridVisible
+      ? "opacity-100 translate-y-0"
+      : "opacity-0 translate-y-12",
+    style: { transitionDelay: gridVisible ? `${delay}s` : "0s" },
+  });
+
+  return (
+    <section id="services" className="py-24 md:py-32 bg-pen-ash">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section header */}
+        <div ref={headerRef} className="text-center mb-16">
+          <div
+            className={`flex items-center justify-center gap-3 mb-6 transition-all duration-700 ${headerVisible ? "opacity-100" : "opacity-0"}`}
+          >
+            <div
+              className={`h-[2px] bg-pen-blue transition-all duration-1000 delay-100 ${headerVisible ? "w-12" : "w-0"}`}
+            />
+            <span className="text-pen-blue text-sm font-semibold tracking-widest uppercase">
+              What We Do
+            </span>
+            <div
+              className={`h-[2px] bg-pen-blue transition-all duration-1000 delay-100 ${headerVisible ? "w-12" : "w-0"}`}
+            />
+          </div>
+          <h2
+            className={`text-4xl sm:text-5xl md:text-6xl text-pen-navy lowercase leading-tight transition-all duration-1000 delay-200 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            empowering through
+            <br />
+            <span className="text-pen-blue">action & awareness</span>
+          </h2>
+          <p
+            className={`mt-6 text-pen-grey text-lg max-w-2xl mx-auto transition-all duration-700 delay-400 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
+          >
+            We take a holistic approach to mental health advocacy, providing
+            services that educate, support, and transform communities.
+          </p>
+        </div>
+
+        {/* Bento Grid */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-auto"
+        >
+          {/* ── Featured Card: Mental Health Advocacy ── */}
+          <div
+            className={`group md:col-span-7 md:row-span-2 relative bg-pen-navy rounded-3xl p-10 md:p-12 overflow-hidden cursor-default transition-all duration-700 ${vis(0).className}`}
+            style={vis(0).style}
+          >
+            {/* Decorative elements */}
+            <div className="absolute top-8 right-8 w-20 h-20 rounded-full border border-white/[0.06]" />
+            <div className="absolute top-12 right-12 w-12 h-12 rounded-full border border-white/[0.06]" />
+
+            <div className="relative z-10 flex flex-col justify-between h-full min-h-[280px] md:min-h-[340px]">
+              <div>
+                <div className="w-16 h-16 rounded-2xl bg-white/[0.08] text-white flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <Microphone2 size="32" variant="Bulk" />
+                </div>
+                <h3
+                  className="text-white font-bold text-3xl md:text-4xl mb-4 leading-tight"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Mental Health
+                  <br />
+                  Advocacy
+                </h3>
+                <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-md">
+                  We champion policies and initiatives that promote mental
+                  health awareness, reduce stigma, and drive systemic change
+                  across communities and institutions.
+                </p>
+              </div>
+              <div className="mt-8 flex items-center gap-2 text-white/30 group-hover:text-white/60 transition-colors duration-300">
+                <span className="text-sm font-medium tracking-wide uppercase">
+                  Learn more
+                </span>
+                <ArrowRight
+                  size="16"
+                  className="group-hover:translate-x-1 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* ── Education & Workshops ── */}
+          <div
+            className={`group md:col-span-5 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.1).className}`}
+            style={vis(0.1).style}
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <Teacher size="28" variant="Bulk" />
+              </div>
+              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+                02
+              </span>
+            </div>
+            <h3
+              className="text-pen-navy font-bold text-xl mb-3"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Education & Workshops
+            </h3>
+            <p className="text-pen-grey text-sm leading-relaxed">
+              We deliver evidence-based workshops, seminars, and training
+              programs that equip individuals and organizations with essential
+              psychological knowledge and coping skills.
+            </p>
+          </div>
+
+          {/* ── Community Support ── */}
+          <div
+            className={`group md:col-span-5 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.2).className}`}
+            style={vis(0.2).style}
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <People size="28" variant="Bulk" />
+              </div>
+              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+                03
+              </span>
+            </div>
+            <h3
+              className="text-pen-navy font-bold text-xl mb-3"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Community Support
+            </h3>
+            <p className="text-pen-grey text-sm leading-relaxed">
+              We build safe, inclusive spaces — both online and offline — where
+              individuals can share experiences, find support, and build
+              meaningful connections on their mental health journey.
+            </p>
+          </div>
+
+          {/* ── Research & Resources ── */}
+          <div
+            className={`group md:col-span-4 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.3).className}`}
+            style={vis(0.3).style}
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <DocumentText size="28" variant="Bulk" />
+              </div>
+              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+                04
+              </span>
+            </div>
+            <h3
+              className="text-pen-navy font-bold text-xl mb-3"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Research & Resources
+            </h3>
+            <p className="text-pen-grey text-sm leading-relaxed">
+              We curate and develop research-backed resources, articles, and
+              toolkits that empower people to better understand psychology and
+              take control of their mental wellness.
+            </p>
+          </div>
+
+          {/* ── Counselor Network ── */}
+          <div
+            className={`group md:col-span-4 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.4).className}`}
+            style={vis(0.4).style}
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <UserTick size="28" variant="Bulk" />
+              </div>
+              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+                05
+              </span>
+            </div>
+            <h3
+              className="text-pen-navy font-bold text-xl mb-3"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Counselor Network
+            </h3>
+            <p className="text-pen-grey text-sm leading-relaxed">
+              We connect individuals with verified mental health
+              professionals, making it easier to find the right support
+              tailored to personal needs and preferences.
+            </p>
+          </div>
+
+          {/* ── Corporate Wellness ── */}
+          <div
+            className={`group md:col-span-4 bg-white rounded-3xl p-8 border border-transparent hover:border-pen-blue/20 hover:shadow-xl hover:shadow-pen-blue/5 transition-all duration-700 cursor-default hover:-translate-y-1 ${vis(0.5).className}`}
+            style={vis(0.5).style}
+          >
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-pen-blue/10 text-pen-blue flex items-center justify-center group-hover:bg-pen-blue group-hover:text-white group-hover:rotate-3 group-hover:scale-110 transition-all duration-500">
+                <Building4 size="28" variant="Bulk" />
+              </div>
+              <span className="text-pen-grey-light text-xs font-semibold tracking-widest uppercase mt-2">
+                06
+              </span>
+            </div>
+            <h3
+              className="text-pen-navy font-bold text-xl mb-3"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Corporate Wellness
+            </h3>
+            <p className="text-pen-grey text-sm leading-relaxed">
+              We partner with organizations to design and implement workplace
+              wellness programs that boost employee well-being, productivity,
+              and resilience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
